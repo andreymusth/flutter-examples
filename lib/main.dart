@@ -1,44 +1,60 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() => runApp(MainPage());
 
-class MainPage extends StatefulWidget{
-  HomePage createState()=> HomePage();
+class MainPage extends StatefulWidget {
+  HomePage createState() => HomePage();
 }
 
 class HomePage extends State<MainPage> {
-
-  String _enteredText = "";
-
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
+
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Funny mortgage'),
-          centerTitle: true,
+      theme: ThemeData(
+        hintColor: Colors.grey[300],
+        fontFamily: "MonsteratRegular",
+        inputDecorationTheme: InputDecorationTheme(
+          border: UnderlineInputBorder(),
         ),
-        body: Padding(
-          padding: EdgeInsets.all(16.0),
-          child: Column(
-            children: <Widget>[
-              TextField(
-                style: Theme.of(context).textTheme.display1,
-                decoration: InputDecoration(
-                  labelStyle: Theme.of(context).textTheme.display1,
-                  labelText: 'Input',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(0.0),
-                  ),
+      ),
+      home: Scaffold(
+        body: Stack(
+          children: <Widget>[
+            Container(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/background.png"),
+                  fit: BoxFit.fill,
                 ),
-                keyboardType: TextInputType.number,
-                onChanged: (String text) {
-                  setState(() => _enteredText = text);
-                },
               ),
-              Text("$_enteredText")
-            ],
-          ),
+            ),
+            Center(
+              child: Column(
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.only(top: 100.0),
+                    child: Text(
+                      "Sign up",
+                      style: TextStyle(fontSize: 32.0, color: Colors.white),
+                    ),
+                  ),
+                  Container(
+                    width: 240.0,
+                    padding: EdgeInsets.only(top: 40.0),
+                    child: TextField(
+                      textAlign: TextAlign.center,
+                      decoration: InputDecoration(
+                        hintText: "Name",
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
