@@ -16,7 +16,7 @@ class HomePage extends State<MainPage> {
       theme: ThemeData(
         hintColor: Colors.grey[300],
         fontFamily: "MonsteratRegular",
-        textSelectionColor: Colors.white,
+        primaryColor: Colors.white,
         inputDecorationTheme: InputDecorationTheme(
           border: UnderlineInputBorder(),
         ),
@@ -90,11 +90,17 @@ class HomePage extends State<MainPage> {
                       padding: EdgeInsets.only(top: 40.0),
                       child: Container(
                         width: 200.0,
-                        height: 40.0,
+                        height: 50.0,
                         child: RaisedButton(
                           textTheme: ButtonTextTheme.accent,
                           onPressed: () => debugPrint(""),
-                          child: Text("Sign Up"),
+                          child: Text(
+                            "Sign Up",
+                            style: TextStyle(
+                              color: Colors.cyan,
+                              fontSize: 16.0
+                            ),
+                          ),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.0),
                           ),
