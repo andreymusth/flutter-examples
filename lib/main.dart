@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'login_signup.dart';
 import 'my_tab_bar.dart';
+import 'welcome_back.dart';
 
-void main() => runApp(MyTabBar());
+void main() => runApp(WelcomeBack());
 
 class MainPage extends StatefulWidget {
   HomePage createState() => HomePage();

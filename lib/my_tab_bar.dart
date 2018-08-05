@@ -8,8 +8,8 @@ class MyTabBar extends StatefulWidget {
 class _MyTab extends State<MyTabBar> {
   int _selectedTab = 1;
 
-  static Color _normal = Color.fromRGBO(46, 52, 66, 1.0);
-  static Color _faded = Color.fromRGBO(32, 34, 39, 1.0);
+  static final Color _normal = Color.fromRGBO(46, 52, 66, 1.0);
+  static final Color _faded = Color.fromRGBO(32, 34, 39, 1.0);
 
   Color _firstTabColor = _normal;
   Color _secondTabColor = _faded;
