@@ -30,13 +30,29 @@ class _MyTab extends State<MyTabBar> {
   Widget _getProperColumn() {
     Widget properWidget;
 
-    if (_selectedTab == 1) {
-      properWidget = Container(
-        color: Colors.cyan,
+    if (_selectedTab == 2) {
+      properWidget = Column(
+        children: <Widget>[
+          TextField(
+            decoration: InputDecoration(labelText: "Email"),
+            style: TextStyle(color: Colors.white),
+          )
+        ],
       );
-    } else if (_selectedTab == 2) {
-      properWidget = Container(
-        color: Colors.amberAccent,
+    } else if (_selectedTab == 1) {
+      properWidget = Column(
+        children: <Widget>[
+          TextField(
+            decoration: InputDecoration(labelText: "Email"),
+            keyboardType: TextInputType.emailAddress,
+            style: TextStyle(color: Colors.white),
+          ),
+          TextField(
+            decoration: InputDecoration(labelText: "Password"),
+            obscureText: true,
+            style: TextStyle(color: Colors.white),
+          )
+        ],
       );
     }
 
@@ -46,11 +62,13 @@ class _MyTab extends State<MyTabBar> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(primaryColor: Colors.white, hintColor: Colors.grey[400]),
       home: Scaffold(
         appBar: PreferredSize(
           child: Image.asset("assets/login_signup_image.png"),
           preferredSize: Size.fromHeight(400.0),
         ),
+        backgroundColor: _normal,
         body: Column(
           children: <Widget>[
             Container(
@@ -65,6 +83,12 @@ class _MyTab extends State<MyTabBar> {
                             _toggleTab(1);
                             debugPrint("pressed 1");
                           },
+                          child: Center(
+                            child: Text(
+                              "Log in",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
                         ),
                         color: Colors.transparent,
                       ),
@@ -79,6 +103,12 @@ class _MyTab extends State<MyTabBar> {
                             _toggleTab(2);
                             debugPrint("pressed 2");
                           },
+                          child: Center(
+                            child: Text(
+                              "Sign up",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
                         ),
                         color: Colors.transparent,
                       ),
@@ -89,11 +119,36 @@ class _MyTab extends State<MyTabBar> {
               ),
             ),
             Expanded(
-              child: _getProperColumn(),
+              child: Container(
+                color: _normal,
+                child: Center(
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      left: 60.0,
+                      right: 60.0,
+                    ),
+                    child: _getProperColumn(),
+                  ),
+                ),
+              ),
             )
           ],
         ),
         bottomNavigationBar: Container(
+          child: Material(
+            child: InkWell(
+              onTap: () {
+                print("pressed 3");
+              },
+              child: Center(
+                child: Text(
+                  "Get started",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ),
+            color: Colors.transparent,
+          ),
           height: 60.0,
           decoration: BoxDecoration(
             gradient: LinearGradient(
