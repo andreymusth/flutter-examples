@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'login_signup.dart';
+import 'my_tab_bar.dart';
 
-void main() => runApp(MainPage());
+void main() => runApp(MyTabBar());
 
 class MainPage extends StatefulWidget {
   HomePage createState() => HomePage();
@@ -10,6 +12,9 @@ class MainPage extends StatefulWidget {
 class HomePage extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
+
+    print("Success");
+
     SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
 
     return MaterialApp(
@@ -93,13 +98,16 @@ class HomePage extends State<MainPage> {
                         height: 50.0,
                         child: RaisedButton(
                           textTheme: ButtonTextTheme.accent,
-                          onPressed: () => debugPrint(""),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LogInSignUp()));
+                          },
                           child: Text(
                             "Sign Up",
-                            style: TextStyle(
-                              color: Colors.cyan,
-                              fontSize: 16.0
-                            ),
+                            style:
+                                TextStyle(color: Colors.cyan, fontSize: 16.0),
                           ),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30.0),

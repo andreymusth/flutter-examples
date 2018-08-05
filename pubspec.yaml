@@ -28,6 +28,7 @@ flutter:
 
   assets:
     - assets/background.png
+    - assets/login_signup_image.png
 
   fonts:
     - family: MonsteratLight
